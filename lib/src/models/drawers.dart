@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cr_calendar/cr_calendar.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +18,8 @@ final class EventProperties {
     required this.end,
     required this.name,
     required this.backgroundColor,
+    required this.borderColor,
+    required this.textStyle,
   });
 
   /// Begin day number.
@@ -28,6 +28,12 @@ final class EventProperties {
   int end; // min 1 / max 7
   /// Background color.
   Color backgroundColor;
+
+  /// Event Text style.
+  TextStyle textStyle;
+
+  /// Border color.
+  Color borderColor;
 
   /// Name displayed at start of the event widget.
   String name;
