@@ -101,10 +101,15 @@ EventProperties? _mapSimpleEventToDrawerOrNull(
   }
 
   return EventProperties(
-      begin: beginDay,
-      end: endDay,
-      name: event.name,
-      backgroundColor: event.eventColor);
+    begin: beginDay,
+    end: endDay,
+    name: event.name,
+    backgroundColor: event.eventColor,
+    textStyle: event.textStyle,
+    borderColor: event.borderColor,
+    beginDate: jBegin.dateTime,
+    endDate: jEnd.dateTime,
+  );
 }
 
 /// Map EventDrawers to EventsLineDrawer and sort them by duration on current week
