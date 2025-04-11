@@ -44,5 +44,10 @@ final class EventProperties {
   DateTime beginDate;
   DateTime endDate;
 
+  bool get isEndDateMidnight {
+    final difference = endDate.difference(beginDate);
+    return difference.inDays >= 1 && endDate.hour == 0 && endDate.minute == 0;
+  }
+
   int size() => end - begin + 1;
 }

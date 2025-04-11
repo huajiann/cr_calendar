@@ -44,16 +44,16 @@ class WeekEventsWidget extends StatelessWidget {
     for (var i = 0; i < eventLines.length; i++) {
       for (var j = 0; j < eventLines[i].events.length; j++) {
         final item = eventLines[i].events[j];
+
         widgets.add(
           Positioned(
             top: i * lineHeight,
             left: (item.begin - 1) * itemWidth + padding.left,
-            right: (Contract.kWeekDaysCount - item.end) * itemWidth +
-                padding.right,
+            right: (Contract.kWeekDaysCount - item.end + (item.isEndDateMidnight ? 1 : 0)) * itemWidth + padding.right,
+            // right: (Contract.kWeekDaysCount - item.end) * itemWidth + padding.right,
             child: Container(
-              height:
-                  lineHeight - itemHeight / Contract.kDistanceBetweenEventsCoef,
-              width: itemWidth * item.size() - Contract.kLinesPadding,
+              height: lineHeight - itemHeight / Contract.kDistanceBetweenEventsCoef,
+              // width: itemWidth * item.duration() - Contract.kLinesPadding,
               child: eventBuilder != null
                   ? eventBuilder?.call(item)
                   : Container(
